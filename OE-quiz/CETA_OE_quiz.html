@@ -16,7 +16,7 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title">Open-ended Quiz</h5>
+            <h5 class="modal-title" style="color:4493a1">TIME FOR QUESTIONS</h5>
             <button type="button" class="close">
               <span aria-hidden="true">×</span>
             </button>
@@ -24,12 +24,18 @@
           <div class="modal-body">
             <div class="container">
               <h5>What questions do you have about Encouraging Participation? Your questions will be sent to the trainer.</h5>
-              <textarea class="form-control rounded-0" rows="0"></textarea>
+              <textarea class="form-control rounded-12" rows="0"></textarea>
             </div>
           </div>
           <div class="modal-footer">
-            <div style="width:75%">
-              <button style="display:inline-block">Submit Quiz</button>
+            <div id="footer-container">
+              <div id="left">
+                <input style="float:left" type="checkbox" id="no_questions" name="no_questions" value="skip_feedback">
+                <label for="no_questions">I have no questions</label>
+              </div>
+              <div id="right">
+                <button style="display:inline-block" class="submit-button">Submit Quiz</button>
+              </div>
             </div>
           </div>
         </div>

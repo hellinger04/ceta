@@ -44,3 +44,24 @@ body{
   height: 200px;
   margin-top: 40px;
 }
+
+#footer-container{width:100%;}
+#left{float:left;width:200px;}
+#right{float:right;width:200px;}
+
+.submit-button{
+  border-radius: 20px;
+  background-color: #255962;
+  color: white;
+  border-color: #255962;
+}
+
+.submit-button:hover {
+  background-color: #4493a1;
+  border-color: #4493a1;
+  color: white;
+}
+
+.quiz-title {
+  color: 4493a1;
+}

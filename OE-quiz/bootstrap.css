@@ -6268,6 +6268,10 @@ button.bg-dark:focus {
   border-radius: 0 !important;
 }
 
+.rounded-12 {
+  border-radius: 12px !important;
+}
+
 .clearfix::after {
   display: block;
   clear: both;
