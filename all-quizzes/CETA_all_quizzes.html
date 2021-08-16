@@ -45,7 +45,7 @@
     .our-flow{
       border: 1px solid;
       text-align: center;
-      background-color: lightgray; 
+      background-color: lightgray;
       flex-basis: 100%;
     }
     .your-flow{
@@ -62,6 +62,58 @@
     }
     .draggable-origin{
       margin: 10px;
+    }
+
+    .modal-content {
+      position: relative;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      width: 100%;
+      pointer-events: auto;
+      background-color: #fff;
+      background-clip: padding-box;
+      border-radius: 0.3rem;
+      outline: 0;
+      background-color: #f6f6f6;
+    }
+
+    .modal-header {
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-align: start;
+      align-items: flex-start;
+      -ms-flex-pack: justify;
+      justify-content: space-between;
+      padding: 1rem;
+      border-bottom: 0px solid #e9ecef;
+      border-top-left-radius: 0.3rem;
+      border-top-right-radius: 0.3rem;
+      color: #255962;
+    }
+
+    .modal-body {
+      position: relative;
+      -ms-flex: 1 1 auto;
+      flex: 1 1 auto;
+      padding: 1rem;
+      color: #255962;
+    }
+
+    .rounded-12 {
+      border-radius: 12px !important;
+    }
+
+    .modal-footer {
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-align: center;
+      align-items: center;
+      -ms-flex-pack: end;
+      justify-content: flex-end;
+      padding: 1rem;
+      border-top: 0px solid #e9ecef;
     }
   </style>
 </head>
@@ -104,7 +156,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title">
-            Open-ended Quiz 1
+            TIME FOR QUESTIONS
           </h5>
           <button class="close" data-dismiss="modal" type="button">
             <span aria-hidden="true">
@@ -117,7 +169,7 @@
             <h5>
               What questions do you have about Encouraging Participation? Your questions will be sent to the trainer.
             </h5>
-            <textarea class="form-control rounded-0" rows="0">
+            <textarea class="form-control rounded-12" rows="0">
             </textarea>
           </div>
         </div>
@@ -327,7 +379,7 @@
             </div>
 
             <div class="example-parent" style="width: 700px;">
-              
+
               <div class="example-origin">
                 <div class="example-draggable">
                   Thoughts
