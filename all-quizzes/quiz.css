@@ -8,6 +8,7 @@ body{
 }
 .answers {
   margin-bottom: 20px;
+  font-size: 18px;
 }
 .answers label{
   display: block;

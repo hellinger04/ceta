@@ -28,6 +28,7 @@
       color: white;
       border-color: #255962;
       display:inline-block;
+      font-weight:bold;
     }
 
     .submit-button:hover {
@@ -115,6 +116,17 @@
       padding: 1rem;
       border-top: 0px solid #e9ecef;
     }
+
+    body {
+      margin: 0;
+      font-family: "Sofia Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+      font-size: 1rem;
+      font-weight: 400;
+      line-height: 1.5;
+      color: #212529;
+      text-align: left;
+      background-color: #fff;
+    }
   </style>
 </head>
 
@@ -166,9 +178,9 @@
         </div>
         <div class="modal-body">
           <div class="container">
-            <h5>
-              What questions do you have about Encouraging Participation? Your questions will be sent to the trainer.
-            </h5>
+            <h4>
+              <b>What questions do you have about Encouraging Participation?<b>
+            </h4>
             <textarea class="form-control rounded-12" rows="0">
             </textarea>
           </div>
@@ -179,7 +191,7 @@
             </div>
             <div class="modal-right">
               <button class="submit-button">
-                Submit Quiz
+                Submit
               </button>
             </div>
           </div>
@@ -193,9 +205,9 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">
-            Select One Choice
-          </h5>
+          <h4 class="modal-title">
+            <b>Did you complete the role play?<b>
+          </h4>
           <button class="close" data-dismiss="modal" type="button">
             <span aria-hidden="true">
               ×
@@ -204,22 +216,22 @@
         </div>
         <div class="modal-body">
           <div class="question">
-            Did you complete the role play?
-          </div>
+            Select one choice:
+          </div><br>
           <div class="answers">
             <label>
               <input name="question0" type="radio">
-                1 : Yes (radio button)
+                Yes
               </input>
             </label>
             <label>
               <input name="question0" type="radio">
-                2 : No (radio button)
+                No
               </input>
             </label>
             <label>
               <input type="checkbox">
-                3 : I need help (checkbox)
+                I need help
               </input>
             </label>
           </div>
