@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>
+    Design quizzes
+  </title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="white" name="theme-color">
+  <script src="jquery.min.js"></script>
+  <script src="bootstrap.min.js"></script>
+  <link href="bootstrap.css" rel="stylesheet">
+  <link href="style.css" rel="stylesheet">
+  <link href="quiz.css" rel="stylesheet">
+  <style>
+    @font-face {
+      font-family: Sofia Pro;
+      src: url("Sofia_Pro_Light_Az.otf") format("opentype");
+    }
+    .modal-footer-container{width:100%;}
+    .modal-left{float:left;width:200px;}
+    .modal-right{float:right;width:200px;}
+
+    .submit-button{
+      border-radius: 20px;
+      background-color: #255962;
+      color: white;
+      border-color: #255962;
+      display:inline-block;
+    }
+
+    .submit-button:hover {
+      background-color: #4493a1;
+      border-color: #4493a1;
+      color: white;
+    }
+
+    .example-dropzone{
+      background-color: lightgray;
+    }
+    .draggable{
+      margin: 0px;
+    }
+    .our-flow{
+      border: 1px solid;
+      text-align: center;
+      background-color: lightgray; 
+      flex-basis: 100%;
+    }
+    .your-flow{
+      border: 1px solid;
+      text-align: center;
+      flex-basis: 100%;
+    }
+    .dropped-draggable{
+      background-color: white;
+    }
+    .dropped-draggable-flow{
+      background-color: white;
+      margin: 0px;
+    }
+    .draggable-origin{
+      margin: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <button data-target="#OE" data-toggle="modal">
+    Open-ended
+  </button>
+  <button data-target="#SC" data-toggle="modal">
+    Single-choice
+  </button>
+  <button data-target="#DD1" data-toggle="modal">
+    Drag-drop 1
+  </button>
+  <button data-target="#DD2" data-toggle="modal" id="btnDD2a">
+    Drag-drop 2a
+  </button>
+  <button data-target="#DD2" data-toggle="modal" id="btnDD2b">
+    Drag-drop 2b
+  </button>
+
+  <script>
+    $('#btnDD2a').click( () => {
+      $('#DD2left').css('display','table-cell');
+      $('#DD2ourflow').hide();
+      $('#DD2yourflow').css('width','67%')
+      $('#DD2header').hide();
+    });
+    $('#btnDD2b').click( () => {
+      $('#DD2left').css('display','none');
+      $('#DD2ourflow').show().css('width','40%');
+      $('#DD2yourflow').css('width','40%')
+      $('#DD2header').show();
+    });
+  </script>
+
+
+  <div class="modal" id="OE">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">
+            Open-ended Quiz 1
+          </h5>
+          <button class="close" data-dismiss="modal" type="button">
+            <span aria-hidden="true">
+              ×
+            </span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="container">
+            <h5>
+              What questions do you have about Encouraging Participation? Your questions will be sent to the trainer.
+            </h5>
+            <textarea class="form-control rounded-0" rows="0">
+            </textarea>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <div class="modal-footer-container">
+            <div class="modal-left">
+            </div>
+            <div class="modal-right">
+              <button class="submit-button">
+                Submit Quiz
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal" id="SC">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">
+            Select One Choice
+          </h5>
+          <button class="close" data-dismiss="modal" type="button">
+            <span aria-hidden="true">
+              ×
+            </span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="question">
+            Did you complete the role play?
+          </div>
+          <div class="answers">
+            <label>
+              <input name="question0" type="radio">
+                1 : Yes (radio button)
+              </input>
+            </label>
+            <label>
+              <input name="question0" type="radio">
+                2 : No (radio button)
+              </input>
+            </label>
+            <label>
+              <input type="checkbox">
+                3 : I need help (checkbox)
+              </input>
+            </label>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <div class="modal-footer-container">
+            <div class="modal-left">
+            </div>
+            <div class="modal-right">
+              <button class="submit-button">
+                Submit Quiz
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal" id="DD2">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" style="width: 90%;">
+            Drag and drop quiz
+            <button style="display: none;">
+              Submit your explanation
+            </button>
+          </h5>
+          <button class="close" data-dismiss="modal" type="button">
+            <span aria-hidden="true">
+              ×
+            </span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="container" style="width: 1260px; display: flex;">
+            <div id="divZoneQ" style="width: 340px;">
+              <p style="font-size:smaller; ">
+                You are working with a male client who is 18 years old. He reports that he is very socially anxious. Specifically, he has a hard time talking with peers his age and cannot give presentations at work, which is required of him. He often gets so nervous that he will have headaches or vomit. Please arrange the cards in a flow with the elements, the order, and the dosing (or how many sessions of each element) for this case.
+              </p>
+            </div>
+            <div class="example-parent container flex" style="display: table; text-align: center; width: 700px;">
+
+              <div id="DD2left" class="example-origin" style="display: table-cell; border: solid 1px black; text-align: center; vertical-align: middle; width: 33%">
+                <div class="example-draggable draggable-origin" >
+                  Safety
+                </div>
+                <div class="example-draggable draggable-origin" >
+                  TDW1
+                </div>
+              </div>
+              <div class="row">
+
+                <div id="DD2ourflow" class="container" style="text-align: center; width: 40%;">
+                  <h4>
+                    Our flow
+                  </h4>
+                  <div class="row">
+                    <div class="dropzone col our-flow">
+                      <div class="draggable">
+                        TDW2
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="dropzone col our-flow">
+                      <div class="draggable">
+                        TDW2
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="dropzone col our-flow" style="flex-basis: 50%;">
+                      <div class="draggable">
+                        FS
+                      </div>
+                    </div>
+                    <div class="dropzone col our-flow" style="flex-basis: 50%;">
+                      <div class="draggable">
+                        Safety
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div id="DD2yourflow" class="container" style="display: table-cell; text-align: center; width: 40%">
+                  <h4 id="DD2header">
+                    Your flow
+                  </h4>
+                  <div class="row">
+                    <div class="example-dropzone col your-flow">
+                      <div class="example-draggable dropped-draggable-flow">
+                        LE
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="example-dropzone col your-flow">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="example-dropzone col your-flow" style="flex-basis: 50%;">
+                    </div>
+                    <div class="example-dropzone col your-flow" style="flex-basis: 50%;">
+                      <div class="example-draggable dropped-draggable-flow">
+                        EPINTRO
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <div class="modal-footer-container">
+            <div class="modal-left">
+            </div>
+            <div class="modal-right">
+              <button class="submit-button">
+                Click here for next step
+              </button>
+              <span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal" id="DD1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" style="width: 90%;">
+            Drag and drop quiz
+            <button style="display: none;">
+              Submit your explanation
+            </button>
+          </h5>
+          <button class="close" data-dismiss="modal" type="button">
+            <span aria-hidden="true">
+              ×
+            </span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="container" style="width: 1260px; display: flex;">
+            <div id="divZoneQ" style="width: 340px;">
+              <p style="font-size:smaller; ">
+                Think back to the homework you read, and match the client’s answers to the right amount of risk.
+              </p>
+            </div>
+
+            <div class="example-parent" style="width: 700px;">
+              
+              <div class="example-origin">
+                <div class="example-draggable">
+                  Thoughts
+                </div>
+                <div class="example-draggable">
+                  Plan
+                </div>
+              </div>
+
+              <div class="example-dropzone">
+                Low Risk
+                <div class="example-draggable dropped-draggable">
+                  Plan
+                </div>
+              </div>
+              <div class="example-dropzone">
+                Medium Risk
+                <div class="example-draggable dropped-draggable">
+                  Past Attempt Only
+                </div>
+                <div class="example-draggable dropped-draggable">
+                  Thoughts
+                </div>
+              </div>
+              <div class="example-dropzone">
+                High Risk
+                <div class="example-draggable dropped-draggable">
+                  Plan
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <div class="modal-footer-container">
+            <div class="modal-left">
+            </div>
+            <div class="modal-right">
+              <button class="submit-button">
+                Click here for next step
+              </button>
+              <span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
