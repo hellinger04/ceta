@@ -32,8 +32,8 @@
     }
 
     .submit-button:hover {
-      background-color: #4493a1;
-      border-color: #4493a1;
+      background-color: #378391;
+      border-color: #378391;
       color: white;
     }
 
@@ -78,6 +78,10 @@
       border-radius: 0.3rem;
       outline: 0;
       background-color: #f6f6f6;
+      padding-top: 50px;
+      padding-right: 50px;
+      padding-bottom: 50px;
+      padding-left: 50px;
     }
 
     .modal-header {
@@ -127,6 +131,11 @@
       text-align: left;
       background-color: #fff;
     }
+
+    #rcorners1 {
+      border-radius: 25px;
+      background: #378391;
+  }
   </style>
 </head>
 
@@ -204,21 +213,22 @@
   <div class="modal" id="SC">
     <div class="modal-dialog">
       <div class="modal-content">
-        <div class="modal-header">
-          <h4 class="modal-title">
+        <div id="rcorners1">
+          <div class="modal-header">
+          <h4 class="modal-title" style="color:white">
             <b>Did you complete the role play?<b>
           </h4>
           <button class="close" data-dismiss="modal" type="button">
-            <span aria-hidden="true">
+            <span aria-hidden="true" style="color:white">
               ×
             </span>
           </button>
         </div>
         <div class="modal-body">
-          <div class="question">
+          <div class="question" style="color:white">
             Select one choice:
           </div><br>
-          <div class="answers">
+          <div class="answers" style="color:white">
             <label>
               <input name="question0" type="radio">
                 Yes
@@ -236,13 +246,14 @@
             </label>
           </div>
         </div>
+      </div>
         <div class="modal-footer">
           <div class="modal-footer-container">
             <div class="modal-left">
             </div>
             <div class="modal-right">
               <button class="submit-button">
-                Submit Quiz
+                Submit
               </button>
             </div>
           </div>
