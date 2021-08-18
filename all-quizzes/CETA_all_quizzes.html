@@ -136,6 +136,14 @@
       border-radius: 25px;
       background: #378391;
   }
+
+  .example-parent {
+      border: 0px solid #DFA612;
+      color: black;
+      display: flex;
+      font-family: "Sofia Pro", sans-serif;
+      font-weight: bold;
+  }
   </style>
 </head>
 
@@ -265,10 +273,10 @@
 
   <div class="modal" id="DD2">
     <div class="modal-dialog">
-      <div class="modal-content">
+      <div class="modal-content" style="background-color:#e5e5e5">
         <div class="modal-header">
           <h5 class="modal-title" style="width: 90%;">
-            Drag and drop quiz
+            DRAG-AND-DROP QUIZ
             <button style="display: none;">
               Submit your explanation
             </button>
@@ -279,10 +287,15 @@
             </span>
           </button>
         </div>
-        <div class="modal-body">
+        <div class="modal-header">
+          <h4>
+            <b>Client:</b> 18yo male
+            </h4>
+        </div>
+        <div class="modal-body" style="color:#676767">
           <div class="container" style="width: 1260px; display: flex;">
             <div id="divZoneQ" style="width: 340px;">
-              <p style="font-size:smaller; ">
+              <p >
                 You are working with a male client who is 18 years old. He reports that he is very socially anxious. Specifically, he has a hard time talking with peers his age and cannot give presentations at work, which is required of him. He often gets so nervous that he will have headaches or vomit. Please arrange the cards in a flow with the elements, the order, and the dosing (or how many sessions of each element) for this case.
               </p>
             </div>
