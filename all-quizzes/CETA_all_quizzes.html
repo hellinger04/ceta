@@ -302,7 +302,7 @@
             </div>
             <div class="example-parent container flex" style="display: table; text-align: center; width: 700px;">
 
-              <div id="DD2left" class="example-origin" style="display: table-cell; border: solid 1px black; text-align: center; vertical-align: middle; width: 33%">
+              <div id="DD2left" class="example-origin" style="display: table-cell; border: solid 0px black; text-align: center; vertical-align: middle; width: 33%; background-color:white">
                 <div class="example-draggable draggable-origin" >
                   SAFETY
                 </div>
@@ -357,10 +357,16 @@
                   </div>
                   <div class="row">
                     <div class="example-dropzone col your-flow">
+                      <div class="example-draggable dropped-draggable-flow" style="background-color:#e5e5e5">
+                        &nbsp
+                      </div>
                     </div>
                   </div>
                   <div class="row">
                     <div class="example-dropzone col your-flow" style="flex-basis: 50%;">
+                      <div class="example-draggable dropped-draggable-flow" style="background-color:#e5e5e5">
+                        &nbsp
+                      </div>
                     </div>
                     <div class="example-dropzone col your-flow" style="flex-basis: 50%;">
                       <div class="example-draggable dropped-draggable-flow" style="color:white; background-color:#255962">
@@ -393,10 +399,10 @@
 
   <div class="modal" id="DD1">
     <div class="modal-dialog">
-      <div class="modal-content">
+      <div class="modal-content" style="background-color:#e5e5e5">
         <div class="modal-header">
           <h5 class="modal-title" style="width: 90%;">
-            Drag and drop quiz
+            DRAG-AND-DROP QUIZ
             <button style="display: none;">
               Submit your explanation
             </button>
@@ -407,33 +413,38 @@
             </span>
           </button>
         </div>
+        <div class="modal-header">
+          <h4>
+            <b>Client:</b> 33yo female
+            </h4>
+        </div>
         <div class="modal-body">
           <div class="container" style="width: 1260px; display: flex;">
             <div id="divZoneQ" style="width: 340px;">
-              <p style="font-size:smaller; ">
+              <p>
                 Think back to the homework you read, and match the client’s answers to the right amount of risk.
               </p>
             </div>
 
-            <div class="example-parent" style="width: 700px;">
+            <div class="example-parent" style="width: 700px; padding-left:25px">
 
-              <div class="example-origin">
-                <div class="example-draggable">
+              <div class="example-origin" style="background-color:white; margin-right:25px">
+                <div class="example-draggable" style="text-align:center">
                   Thoughts
                 </div>
-                <div class="example-draggable">
+                <div class="example-draggable" style="text-align:center">
                   Plan
                 </div>
               </div>
 
-              <div class="example-dropzone">
-                Low Risk
-                <div class="example-draggable dropped-draggable">
+              <div class="example-dropzone" style="text-align:center; background-color:white; color:#255962">
+                <b>Low-Risk</b>
+                <div class="example-draggable dropped-draggable" style="background-color:#e5e5e5">
                   Plan
                 </div>
               </div>
-              <div class="example-dropzone">
-                Medium Risk
+              <div class="example-dropzone" style="text-align:center; background-color:white; color:#255962">
+                <b>Medium-Risk</b>
                 <div class="example-draggable dropped-draggable">
                   Past Attempt Only
                 </div>
@@ -441,8 +452,8 @@
                   Thoughts
                 </div>
               </div>
-              <div class="example-dropzone">
-                High Risk
+              <div class="example-dropzone" style="text-align:center; background-color:white; color:#255962; font-weight:bold">
+                High-Risk
                 <div class="example-draggable dropped-draggable">
                   Plan
                 </div>
