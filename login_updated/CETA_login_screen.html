@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="white" />
+
+  <base href="./">
+
+  <script src="lib/jquery.min.js"></script>
+  <script src="lib/popper.min.js"></script>
+  <script src="lib/bootstrap.js"></script>
+
+  <link rel="stylesheet" href="lib/bootstrap.css">
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    .clearfix::after{
+      content: "";
+      clear: both;
+      display: table;
+    }
+    .container-responsive-iframe {
+      overflow: hidden;
+      position: relative;
+      width: 33%;
+      height: 250px;
+      float: left;
+    }
+    /* Then style the iframe to fit in the container div with full height and width */
+    .responsive-iframe {
+      width:800px;
+      height:495px;
+      transform: scale(0.33);
+      transform-origin: 0 0;
+      position:relative;
+      overflow:hidden;
+    }
+    .dropdown-menu {
+      position: absolute;
+      transform: translate3d(0px, 59px, 0px);
+      top: 0px;
+      left: 0px;
+      will-change: transform;
+      background-color: fff;
+      font-size: large;
+    }
+    .dropdown-toggle {
+      background-color: #02BFC4;
+      border-color: #02BFC4;
+      border-radius: 20px;
+    }
+
+    .btn-dark:hover {
+      color: #fff;
+      background-color: #02999d;
+      border-color: #02999d;
+    }
+
+    .btn-dark:not(:disabled):not(.disabled):active, .btn-dark:not(:disabled):not(.disabled).active,
+    .show > .btn-dark.dropdown-toggle {
+      color: #fff;
+      background-color: #02999d;
+      border-color: #02999d;
+    }
+
+    .submit-login {
+      color: yellow;
+    }
+
+    .btn-primary {
+      color: #fff;
+      background-color: #255962;
+      border-color: #255962;
+      border-radius: 20px;
+    }
+
+    .btn-primary:hover {
+      color: #fff;
+      background-color: #02999d;
+      border-color: #02999d;
+      border-radius: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    #rcorners1 {
+      border-radius: 25px;
+      background: #e5e5e5;
+      margin-left: 20px;
+      margin-right: 20px;
+      padding-bottom: 20px;
+    }
+    
+  </style>
+</head>
+
+<body>
+
+<div id="rcorners1">
+<div id="CETA_login" class="container" style="border: 0px solid blue">
+    <div class="form-group">
+      <br>
+
+      <input type="text" class="form-control" id="userName" value="CETA_Test">
+
+      <br>
+
+      <div class="btn-group">
+        <button type="button" class="btn btn-lg btn-dark dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Select country</button>
+        <ul class="dropdown-menu" role="menu" x-placement="bottom-start">
+          <li role="presentation">Zambia</li>
+          <li role="presentation">South Africa</li>
+        </ul>
+      </div>
+
+      <div class="btn-group">
+        <button type="button" class="btn btn-lg btn-dark dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Select region</button>
+        <ul class="dropdown-menu" role="menu" x-placement="bottom-start">
+          <li role="presentation">Lusaka</li>
+          <li role="presentation">Johannesburg</li>
+        </ul>
+      </div>
+
+      <div class="btn-group">
+        <button type="button" class="btn btn-lg btn-dark dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Select training date</button>
+        <ul class="dropdown-menu" role="menu" x-placement="bottom-start" style="position: absolute; transform: translate3d(0px, 59px, 0px); top: 0px; left: 0px; will-change: transform;">
+          <li role="presentation">August 2021</li>
+          <li role="presentation">July 2021</li>
+        </ul>
+      </div>
+
+      <br>
+
+<!--      <div class="btn-group">-->
+<!--        <button type="button" class="btn btn-lg btn-dark dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Select full name</button>-->
+<!--        <ul class="dropdown-menu" role="menu" x-placement="bottom-start">-->
+<!--          <li role="presentation">Thobile Khoza</li>-->
+<!--          <li role="presentation">Sara Mabelane</li>-->
+<!--        </ul>-->
+<!--      </div>-->
+
+    </div>
+
+  <br>
+
+<!--    <div class="form-group" style="text-align: center">-->
+<!--      <label for="exampleFormControlSelect2">Select full name</label>-->
+<!--      <select multiple class="form-control" id="exampleFormControlSelect2">-->
+<!--        <option>Thobile Khoza</option>-->
+<!--        <option>Sara Mabelane</option>-->
+<!--        <option>Name 3</option>-->
+<!--        <option>Name 4</option>-->
+<!--        <option>Name 5</option>-->
+<!--      </select>-->
+<!--    </div>-->
+
+    <div class="form-group" id="submitDIV">
+      <button type="submit" class="btn btn-lg btn-primary submit-login" id="submitLoginName" data-toggle="modal" data-target="#exampleModal2">Submit</button>
+    </div>
+
+<!--    <div class="form-group" id="submitDIV">-->
+<!--      <button type="submit" class="btn btn-lg btn-primary submit-login" id="submitLoginName" onclick="confirm(`Your name is: Thobile Khoza.\nYour country is: Zambia.\nYour region is: Lusaka.\nYour date is: August 2021.`)">Submit</button>-->
+<!--    </div>-->
+  </div>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" style="text-align: center;">
+  <div class="modal-dialog" role="document" style="margin: auto; margin-top: 20px">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Check the login information</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Your name is: Thobile Khoza</p>
+        <p>Your country is: Zambia</p>
+        <p>Your region is: Lusaka</p>
+        <p>Your date is: August 2021</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary">Correct!</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" style="text-align: center;">
+  <div class="modal-dialog" role="document" style="margin: auto; margin-top: 20px">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Choose Your Name</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="container" style="height: 200px;width: 100%;overflow-y: scroll;border: solid 1px black;text-align: center;">
+          <div class="row">
+            <div class="col-3">
+              <button type="button" class="btn btn-lg btn-outline-dark">Thobile Khoza</button>
+            </div>
+            <div class="col-3">
+              <button type="button" class="btn btn-lg btn-outline-dark">Sara Mabelane</button>
+            </div>
+            <div class="col-3">
+              <button type="button" class="btn btn-lg btn-outline-dark">Name 1</button>
+            </div>
+            <div class="col-3">
+              <button type="button" class="btn btn-lg btn-outline-dark">Name 2</button>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-3">
+              <button type="button" class="btn btn-lg btn-outline-dark">Thobile Khoza</button>
+            </div>
+            <div class="col-3">
+              <button type="button" class="btn btn-lg btn-outline-dark">Sara Mabelane</button>
+            </div>
+            <div class="col-3">
+              <button type="button" class="btn btn-lg btn-outline-dark">Name 3</button>
+            </div>
+            <div class="col-3">
+              <button type="button" class="btn btn-lg btn-outline-dark">Name 4</button>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-3">
+              <button type="button" class="btn btn-lg btn-outline-dark">Name 5</button>
+            </div>
+            <div class="col-3">
+              <button type="button" class="btn btn-lg btn-outline-dark">Name 6</button>
+            </div>
+            <div class="col-3">
+              <button type="button" class="btn btn-lg btn-outline-dark">Name 7</button>
+            </div>
+            <div class="col-3">
+              <button type="button" class="btn btn-lg btn-outline-dark">Name 8</button>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-3">
+              <button type="button" class="btn btn-lg btn-outline-dark">Name 9</button>
+            </div>
+            <div class="col-3">
+              <button type="button" class="btn btn-lg btn-outline-dark">Name 10</button>
+            </div>
+            <div class="col-3">
+              <button type="button" class="btn btn-lg btn-outline-dark">Name 11</button>
+            </div>
+            <div class="col-3">
+              <button type="button" class="btn btn-lg btn-outline-dark">Name 12</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" onclick="$('#exampleModal2').modal('hide')">Submit</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+
+</html>
