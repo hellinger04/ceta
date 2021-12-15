@@ -11,13 +11,13 @@ const play_pause = () => {
     if (video_js.paused) {
       video_js.play();
       btn_play.innerText = txtLbl.Pause;
-      btn_play.style.background-color = #088404;
-      btn_play.style.border-color = #088404;
+      btn_play.style.backgroundColor = #088404;
+      btn_play.style.borderColor = #088404;
     } else {
       video_js.pause();
       btn_play.innerText = txtLbl.Play;
-      btn_play.style.background-color = #399d36;
-      btn_play.style.border-color = #399d36;
+      btn_play.style.backgroundColor = #399d36;
+      btn_play.style.borderColor = #399d36;
     }
     // video_js.paused ? video_js.play() : video_js.pause();
   }
