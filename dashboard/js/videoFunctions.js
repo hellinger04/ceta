@@ -11,8 +11,8 @@ const play_pause = () => {
     if (video_js.paused) {
       video_js.play();
       btn_play.innerText = txtLbl.Pause;
-      btn_play.style.backgroundColor = #088404;
-      btn_play.style.borderColor = #088404;
+      btn_play.style.backgroundColor = #e60000;
+      btn_play.style.borderColor = #e60000;
     } else {
       video_js.pause();
       btn_play.innerText = txtLbl.Play;
@@ -39,7 +39,7 @@ const progress_click = (click_event) => { // used by event listener
 async function videoGenerate(CETA_Card,CETA_Caption_File) {
   const default_color = '#6c757d';
   $('button.card-dropdown').removeClass("active").css('color',default_color).css('background-color','rgba(0,0,0,0)'); // remove active from all dropdown cards
-  $(`button.card-dropdown[data-card="${CETA_Card}"]`).addClass("active").css('color','white').css('background-color','darkgreen'); // active card
+  $(`button.card-dropdown[data-card="${CETA_Card}"]`).addClass("active").css('color','white').css('background-color','#0864cc'); // active card
   // Start
 
   // set_src(CETA_Card,file);
