@@ -1,0 +1,93 @@
+.badge-pill{
+    border: 0;
+    font-size: x-large;
+}
+
+.example-parent {
+    border: 2px solid #DFA612;
+    color: black;
+    display: flex;
+    font-family: sans-serif;
+    font-weight: bold;
+}
+
+.example-origin {
+    flex-basis: 100%;
+    flex-grow: 1;
+    padding: 10px;
+}
+
+.example-draggable, .draggable {
+    background-color: #02BFC4;
+    font-weight: bold;
+    margin: 10px;
+    padding: 9px;
+    border-radius: 12px;
+    color: white;
+}
+
+.example-dropzone, .dropzone {
+    background-color: #6DB65B;
+    flex-basis: 100%;
+    flex-grow: 1;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    min-height: 70px;
+}
+
+.dropdown-menu{
+    max-height: 480px;
+    overflow-y: scroll
+}
+
+.hamburgerBtn {
+    content: "";
+    display: inline-block;
+    background-image: url('../images/list-unordered.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 2rem;
+    height: 2rem;
+}
+
+.fadein a{
+    position: absolute;
+    width: 100%;
+    background-color: black;
+    opacity:0.1;
+    transition: 1s ease;
+}
+
+.fadein a:hover{
+    position: absolute;
+    width: 100%;
+    background-color: black;
+    opacity:0.8;
+    transition: 1s ease;
+}
+
+.modal-dialog {
+    max-width: 1260px;
+    margin-left: 10px;
+}
+
+/*.modal {
+    position: absolute;
+    top: 50px;
+    left: 10px;
+    width: 1960px;
+    height: 740px;
+    overflow-y: auto;
+}*/
+
+.hopscotch-content, .hopscotch-nav-button {
+  font-size: 18px;
+  line-height: 22px;
+}
+.hopscotch-title {
+  font-size: 22px;
+  line-height: 24px;
+}
+

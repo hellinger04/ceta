@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CETA</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="white"/>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-title" content="CETA_TDW V1">
+<meta name="msapplication-TileImage" content="images/hello-icon-144.png">
+<meta name="msapplication-TileColor" content="#FFFFFF">
+
+<base href="./">
+
+<script src="lib/jquery.min.js"></script>
+<script src="lib/jquery-ui.min.js"></script>
+<script src="lib/popper.min.js"></script>
+<script src="lib/bootstrap.js"></script>
+
+<!-- SWITCH BETWEEN ENGLISH AND UKRAINIAN -->
+<script src="js/label_translate_English.js"></script>
+<!-- <script src="js/label_translate_Ukraine.js"></script> -->
+
+<link rel="icon" href="img/favicon.ico" type="image/x-icon" />
+<link rel="apple-touch-icon" href="images/hello-icon-152.png">
+
+<link rel="stylesheet" href="lib/bootstrap.css">
+<style>
+  @font-face {font-family: Sofia Pro; src: url("./fonts/Sofia_Pro_Light_Az.otf") format("opentype");} /* CHILD_VERSION */
+</style>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="lib/jquery-ui.min.css">
+
+<script>
+  $(function () {
+    $('[data-toggle="popover"]').popover();
+    $('#collapseMenu').on('show.bs.collapse',function () {
+      document.querySelector('.fadein a').style.opacity = 0.8;
+    }).on('hidden.bs.collapse',function () {
+      document.querySelector('.fadein a').style.opacity = 0.1;
+    });
+    $('.fadein a').mouseover(function () {
+      document.querySelector('.fadein a').style.opacity = 0.8;
+    }).mouseleave(function () {
+      document.querySelector('.fadein a').style.opacity = 0.1;
+    })
+  });
+</script>
+
+<style>
+  .modal-footer-container{width:100%;}
+  .modal-left{float:left;width:20%;} /* 200px */
+  .modal-right{float:right;width:20%;}
+
+  .submit-button{
+    border-radius: 20px;
+    background-color: #255962;
+    color: white;
+    border-color: #255962;
+    display:inline-block;
+    font-weight:bold;
+  }
+
+  .submit-button:hover {
+    background-color: #02BFC4;
+    border-color: #02BFC4;
+    color: white;
+  }
+
+  .multiple-choice-submit-button{
+    border-radius: 20px;
+    background-color: #255962;
+    color: white;
+    border-color: #255962;
+    display:inline-block;
+    font-weight:bold;
+  }
+
+  .multiple-choice-submit-button:hover {
+    background-color: #378391;
+    border-color: #378391;
+    color: white;
+  }
+
+  .example-dropzone{
+    background-color: lightgray;
+  }
+  .draggable{
+    margin: 0px;
+  }
+  .our-flow{
+    border: 0px solid;
+    text-align: center;
+    background-color: white;
+    flex-basis: 100%;
+  }
+  .your-flow{
+    border: 0px solid;
+    text-align: center;
+    background-color: white;
+    flex-basis: 100%;
+  }
+  .dropped-draggable{
+    background-color: white;
+  }
+  .dropped-draggable-flow{
+    background-color: white;
+    margin: 0px;
+  }
+  .draggable-origin{
+    margin: 0.5rem; /* 10px */
+  }
+
+  .modal-content {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    width: 100%;
+    pointer-events: auto;
+    background-color: #fff;
+    background-clip: padding-box;
+    border-radius: 0.3rem;
+    outline: 0;
+    background-color: #f6f6f6;
+    padding: 1rem; /* 50px */
+  }
+
+  .modal-header {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: 1rem;
+    border-bottom: 0px solid #e9ecef;
+    border-top-left-radius: 0.3rem;
+    border-top-right-radius: 0.3rem;
+    color: #255962;
+  }
+
+  .modal-body {
+    position: relative;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding: 1rem;
+    color: #255962;
+  }
+
+  .rounded-12 {
+    border-radius: 12px !important;
+  }
+
+  .modal-footer {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    padding: 1rem;
+    border-top: 0px solid #e9ecef;
+  }
+
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    text-align: left;
+    background-color: #fff;
+  }
+
+  #rcorners1 {
+    border-radius: 25px;
+    background: #378391;
+  }
+
+  .example-parent {
+      border: 0px solid #DFA612;
+      color: black;
+      display: flex;
+      font-family: "Sofia Pro", sans-serif; /* CHILD_VERSION */
+      font-weight: bold;
+  }
+</style>
+<!-- ADD COMPBINATORS -->
+<style>
+  #rcorners1 .modal-title,.question,.answers {
+    color: white;
+  }
+  .example-dropzone{
+    background-color: white;
+  }
+  .dropped-draggable{
+    background-color: #255962;
+  }
+  .dropped-draggable-flow{
+    background-color: #255962;
+  }
+</style>
+<style>
+/* Fallback stuff */
+  progress[value] {
+    appearance: none;
+    border: none;
+    border-radius: 3px;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.25) inset;
+    color: dodgerblue;
+    display: inline;
+    height: 15px;
+    order: 1;
+    position: relative;
+    width: 100%;
+  }
+
+</style>
+
+</head>
+
+<body class="fullscreen">
+
+<noscript>
+  <style type="text/css">
+    .container {display:none;}
+  </style>
+  <div class="noscriptmsg">
+    You don't have JavaScript enabled.  This app needs JavaScript to run properly.
+  </div>
+</noscript>
+
+<!-- DIV THAT HOLDS EVERYTHING -->
+<div style="padding: 0px; width: 100%; height: 100%; border: 0px solid; position: absolute; top:0; left:0; background-color: black; ">
+
+  <!-- DIV FOR THE CARD DROPDOWN -->
+  <div class="btn-group" style="position:absolute; left:0rem; z-index:1000; height: 34px; ">
+    <button id="cards_dropdown_button" class="btn btn-sm btn-primary dropdown-toggle class_cards" type="button" data-toggle="dropdown">Cards</button>
+    <ul id="cards_dropdown" class="dropdown-menu" role="menu">
+      <div style="max-height: 100%; text-align: center; ">
+        <div class="btn-group-vertical" id="VideoSelectionDropdown">
+
+          <!-- BUTTONS INSERTED FOR ANDREW -->
+          <button id="dropdown_0" class="btn btn-outline-secondary card-dropdown active" data-card="TDW1.01" data-captionfile="" style="color: rgb(255, 255, 255); background-color: darkgreen;">01 Thoughts, Feelings, and Behaviors</button>
+          <button id="dropdown_1" class="btn btn-outline-secondary card-dropdown" data-card="TDW1.02" data-captionfile="_TDW1.02_6.22.21.vtt" style="color: rgb(108, 117, 125); background-color: rgba(0, 0, 0, 0);">02 Introduction</button>
+
+        </div>
+      </div>
+    </ul>
+  </div>
+
+  <!-- INSERT A SLIM DIV TO HOLD THE DROPDOWN MENUS -->
+  <div style="position:absolute; left:0rem; height:0.1rem">
+    <!-- HIDDEN ELEMENT NEEDED FOR SPACING, DO NOT REMOVE -->
+    <button class="btn btn-sm btn-primary dropdown-toggle class_cards" type="button" style="display: inline-block; height: 0.1rem; margin-top: 0; margin-bottom: 0; padding-top: 0; padding-bottom: 0; visibility: hidden;">Cards</button>
+    <!-- TAKE OUT FOR DESIGN AND REPLACE WITH VISIBLE ELEMENTS (HIDDEN ELEMENT NEEDED FOR SPACING, DO NOT REMOVE) -->
+    <!-- <div class="btn-group" style="display: inline-block; "> -->
+      <!-- <button class="btn btn-sm btn-primary dropdown-toggle class_elements" type="button" data-toggle="dropdown" style="height: 0.1rem; visibility: hidden; ">Elements</button> -->
+
+    <!-- DIV FOR THE ELEMENTS DROPDOWN -->
+    <div class="btn-group" style="display: inline-block; ">
+      <button id="elements_dropdown_button" class="btn btn-sm btn-primary dropdown-toggle class_elements" type="button" data-toggle="dropdown" style="height: 34px;" aria-expanded="false">Elements</button>
+      <ul id="menu_elements" class="dropdown-menu" role="menu" x-placement="bottom-start" style="position: absolute; transform: translate3d(0px, 34px, 0px); top: 0px; left: 0px; will-change: transform;">
+        <div style="max-height: 100%; text-align: center; ">
+          <div class="btn-group-vertical" id="ElementSelectionDropdown">
+
+            <a id="dropdown_1" class="btn btn-outline-secondary element-dropdown" style="color: rgb(108, 117, 125); background-color: rgba(0, 0, 0, 0);">IntroToTraining</a>
+            <a id="dropdown_2" class="btn btn-outline-secondary element-dropdown active" style="color: white; background-color: darkgreen;">EPINTRO</a>
+
+          </div>
+        </div>
+      </ul>
+    </div>
+
+    <!-- DIV FOR THE SUPERVISOR DROPDOWN -->
+    <div class="btn-group" style="display: inline-block; ">
+        <button id="supervisor_dropdown_button" class="btn btn-sm btn-primary dropdown-toggle class_elements_S" type="button" data-toggle="dropdown" style="height: 34px; ">Supervisor elements</button>
+        <ul id="menu_elements_S" class="dropdown-menu" role="menu">
+          <!-- <div style="max-height: 750px; text-align: center; "> -->
+          <div style="max-height: 100%; text-align: center; ">
+            <div class="btn-group-vertical" id="ElementSelectionDropdown_S">
+              <a id="dropdown_23" class="btn btn-outline-secondary element-dropdown" style="color: rgb(108, 117, 125); background-color: rgba(0, 0, 0, 0);">Supervisor_Techniques</a>
+              <a id="dropdown_24" class="btn btn-outline-secondary element-dropdown" style="color: white; background-color: darkgreen;">Supervisor_Training</a></div>
+          </div>
+        </ul>
+      </div>
+      <h6 id="CETA_Card_Display" style="background-color: none; color: white; margin:0px; padding-left: 0.5rem; display: inline-block; height: 34px; z-index:100" >Introduction to Training</h6>
+    </div>
+
+    <!-- TAKE OUT FOR DESIGN (HIDDEN ELEMENT NEEDED FOR SPACING, DO NOT REMOVE) -->
+    <!-- <div class="btn-group class_elements_S_placeholder" style="display: inline-block; "> -->
+      <!-- <button class="btn btn-sm btn-primary dropdown-toggle class_elements_S" type="button" data-toggle="dropdown" style="height: 0.1rem; visibility: hidden; ">Supervisor Elements</button> -->
+    <!-- </div> -->
+
+  </div>
+  <button id="facilitator_button" class="btn btn-sm btn-primary" type="button" style="position: absolute; top: 0; right: 0; height: 34px; z-index:1100; ">Trainer</button>
+
+  <div id="video_container" style="display:inline-block; vertical-align:top; padding:0; position:relative; width: 100%; top:34px; left:0; background-color: darkseagreen;">
+    <!-- PLAYER -->
+    <!-- ratio of width to height should be 1.615 -->
+    <div style="text-align: center; vertical-align: top; padding:0;">
+      <!-- <div id="video" style="z-index: 1; width: fit-content; margin-left:0;"> -->
+      <!-- <div id="video" style="z-index: 1; width: 1280px; height: 700px; margin:0; "> -->
+      <div id="video" style="z-index: 1; margin:0; ">
+      </div>
+    </div>
+  </div>
+
+  <!-- VIDEO CONTROLS -->
+  <div>
+    <!-- POSITION (EG TOP) SET BY JQUERY, SEE $('#btn_prev').css(...) BELOW -->
+    <button id="btn_prev" style="position:absolute; top: 659px; padding: 2px; height: 34px; "> < </button>
+    <button id="btn_play" style="position:absolute; top: 659px; padding: 2px; height: 34px; ">play/pause</button>
+    <button id="btn_next" style="position:absolute; top: 659px; padding: 2px; height: 34px; "> > </button>
+    <button id="btn_cc"   style="position:absolute; top: 659px; padding: 2px; height: 34px; " data-cc="disabled">C</button> <!-- CHILD_VERSION -->
+    <div class="slidecontainer">
+      <input id="volume"  style="position:absolute; top: 659px; padding: 0px; height: 34px; " type="range" min="0" max="100" value="70" class="slider">
+    </div>
+    <progress id="progress" style="position:absolute;top: 659px; padding: 0; height: 34px; " max="100" value="0"></progress>
+    <div id="progress_quiz_buttons">
+      <!-- LEFT AND TOP SET BY JQUERY, SEE $('#time_37_5').css(...) BELOW -->
+      <button style="position: absolute; height: 34px; padding: 0px; border: 1px solid; width: 20px;" id="time_37_5"></button>
+      <button style="position: absolute; height: 34px; padding: 0px; border: 1px solid; width: 20px;" id="time_67_5"></button>
+    </div>
+    <div id="time_display" style="position:absolute; top: 700px; padding: 2px; height: 34px; background-color: transparent; color: white; ">10.1</div>
+  </div>
+</div>
+
+<script>
+  document.title = 'CETA EPINTRO';
+  var font_family = 'Sofia' // CHILD_VERSION
+</script>
+
+<script src="js/utility.js"></script>
+<script src="js/videoFunctions.js"></script>  <!-- VideoFiles is needed in videoFunctions.js to identify the element -->
+<script src="js/main_local.js"></script>
+<script src="js/SaveScore.js"></script>
+<script src="lib/video.min.js"></script>
+<script src="js/quiz.js"></script>
+<script src="js/DragAndDrop.js"></script>
+
+<script>
+  var video_area_size; // needed in videoFunctions.js
+  const progress = document.getElementById('progress');  
+  var progress_start; // start x position in pixels
+  var progress_length; // length in pixels
+
+  $(document).ready(async function() { // occurs after the HTML document has been loaded
+    $('#cards_dropdown_button').text(txtLbl.Cards);
+    $('.class_cards').text(txtLbl.Cards);
+    $('.class_elements').text(txtLbl.Elements);
+    $('.class_elements_S').text(txtLbl.Supervisor_elements);
+
+    const border = 0;
+    const window_height = $(window).height();
+    const window_width = $(window).width();
+    const content_area_height = window_height - 34*2 + 0*border; // class container has max-width, height was 793, now it should be 700-34-34 = 632
+    const content_area_width = window_width + 0*border; // 800 can be changed
+
+    const content_area_size = `width:${content_area_width}px; height:${content_area_height}px;`;
+    const video_area_height = content_area_height - 2*border; // 495 is used in the left container
+    const video_area_width = content_area_width - 2*border; // 800 can be changed
+    video_area_size = `width:${video_area_width}px; height:${video_area_height}px;`; // used in #videoPlayer (in videoFunctions.js)
+    const borders = `border:${border}px solid #29aae3; margin-left:0; padding:0px;`;
+    var kaltura_player = document.getElementById("video");
+    kaltura_player.setAttribute("style",content_area_size + borders);
+
+    const controls_top = window_height - 34;
+    const cc_left = window_width - 30;
+    const time_top = controls_top - 40; // CHILD_VERSION
+    const time_width = 50;
+    var btn_play_width = $('#btn_play').text(txtLbl.Pause).width();
+    btn_play_width = Math.max($('#btn_play').text(txtLbl.Play).width(),btn_play_width); // make sure it is large enough and ends in Play
+
+    $('#volume').css('left','1rem').css('top',controls_top + 'px');
+    $('#btn_prev').css('left',$('#volume').position().left + $('#volume').width() + 10 + 'px').css('top',controls_top + 'px');
+    $('#btn_play').css('left',$('#btn_prev').position().left + $('#btn_prev').width() + 10 + 'px').css('top',controls_top + 'px').width(btn_play_width);
+    $('#btn_next').css('left',$('#btn_play').position().left + $('#btn_play').width() + 10 + 'px').css('top',controls_top + 'px');
+    $('#btn_cc').css('right','1rem').css('top',controls_top + 'px');
+    $('#time_display').css('right',window_width - $('#btn_cc').position().left + 10 + 'px').css('top',controls_top + 'px');
+    progress_start = $('#btn_next').position().left + $('#btn_next').width() + 10;
+    $('#progress').css('left',progress_start + 'px').css('top',controls_top + 'px').width($('#time_display').position().left - progress_start - 10 - 50);
+    progress_length = $('#progress').width();
+    $('#time_37_5').css('left',progress_start + 100 + 'px').css('top',controls_top + 'px').css('background-color','blue');
+    $('#time_67_5').css('left',progress_start + 200 + 'px').css('top',controls_top + 'px');
+    $('#CETA_Card_Display').css('left',500 + 'px');
+  });
+</script>
+</body>
+</html>
