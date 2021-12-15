@@ -163,6 +163,10 @@
     justify-content: flex-end;
     padding: 1rem;
     border-top: 0px solid #e9ecef;
+
+    .btn_play {
+      color: #fff; background-color: #255962; border-color: #255962; border-radius: 20px;
+    }
   }
 
   body {
@@ -313,9 +317,9 @@
   <!-- VIDEO CONTROLS -->
   <div>
     <!-- POSITION (EG TOP) SET BY JQUERY, SEE $('#btn_prev').css(...) BELOW -->
-    <button id="btn_prev" style="position:absolute; top: 659px; padding: 2px; height: 34px; "> < </button>
-    <button id="btn_play" style="position:absolute; top: 659px; padding: 2px; height: 34px; ">play/pause</button>
-    <button id="btn_next" style="position:absolute; top: 659px; padding: 2px; height: 34px; "> > </button>
+    <button id="btn_prev" style="position:absolute; top: 659px; padding: 2px; height: 34px; color: #fff; background-color: #087cfc; border-color: #087cfc; border-radius: 7px;"> < </button>
+    <button id="btn_play" style="position:absolute; top: 659px; padding: 2px; height: 34px; color: #fff; background-color: #087cfc; border-color: #087cfc; border-radius: 7px;">play/pause</button>
+    <button id="btn_next" style="position:absolute; top: 659px; padding: 2px; height: 34px; color: #fff; background-color: #087cfc; border-color: #087cfc; border-radius: 7px;"> > </button>
     <button id="btn_cc"   style="position:absolute; top: 659px; padding: 2px; height: 34px; " data-cc="disabled">C</button> <!-- CHILD_VERSION -->
     <div class="slidecontainer">
       <input id="volume"  style="position:absolute; top: 659px; padding: 0px; height: 34px; " type="range" min="0" max="100" value="70" class="slider">
@@ -345,7 +349,7 @@
 
 <script>
   var video_area_size; // needed in videoFunctions.js
-  const progress = document.getElementById('progress');  
+  const progress = document.getElementById('progress');
   var progress_start; // start x position in pixels
   var progress_length; // length in pixels
 
