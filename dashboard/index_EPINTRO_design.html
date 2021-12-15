@@ -206,6 +206,40 @@
     border-color: #0387b6;
     border-radius: 7px
   }
+
+  .custom-range::-webkit-slider-thumb {
+    width: 1rem;
+    height: 1rem;
+    margin-top: -0.25rem;
+    background-color: #000000;
+    color: black;
+    border: 0;
+    border-radius: 1rem;
+    transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+
+  @media screen and (prefers-reduced-motion: reduce) {
+    .custom-range::-webkit-slider-thumb {
+      transition: none;
+    }
+  }
+
+  .custom-range::-webkit-slider-thumb:active {
+    background-color: #000000;
+  }
+
+  .custom-range::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 0.5rem;
+    color: transparent;
+    cursor: pointer;
+    background-color: #000000;
+    border-color: transparent;
+    border-radius: 1rem;
+  }
+
 </style>
 <!-- ADD COMPBINATORS -->
 <style>
@@ -336,6 +370,7 @@
     <button id="btn_next" style="position:absolute; top: 659px; padding: 2px; height: 34px; color: #fff; background-color: #0387b6; border-color: #0387b6; border-radius: 7px; border: none"> > </button>
     <button id="btn_cc"   style="position:absolute; top: 659px; padding: 2px; height: 34px; color: #fff; background-color: #0387b6; border-color: #0387b6; border-radius: 7px; border: none" data-cc="disabled">CC</button> <!-- CHILD_VERSION -->
     <div class="slidecontainer">
+      <img id="volume_icon" src="lib/images/volume.png" alt="Volume Icon" style="position:absolute; top: 659px; padding: 0px; height: 34px; " type="range" min="0" max="100" value="70">
       <input id="volume"  style="position:absolute; top: 659px; padding: 0px; height: 34px; " type="range" min="0" max="100" value="70" class="slider">
     </div>
     <progress id="progress" style="position:absolute;top: 659px; padding: 0; height: 34px; " max="100" value="0"></progress>
@@ -394,7 +429,8 @@
     var btn_play_width = $('#btn_play').text(txtLbl.Pause).width();
     btn_play_width = Math.max($('#btn_play').text(txtLbl.Play).width(),btn_play_width); // make sure it is large enough and ends in Play
 
-    $('#volume').css('left','1rem').css('top',controls_top + 'px');
+    $('#volume_icon').css('left','1rem').css('top',controls_top + 'px');
+    $('#volume').css('left',$('#volume_icon').position().left + $('#volume_icon').width() + 10 + 'px').css('top',controls_top + 'px');
     $('#btn_prev').css('left',$('#volume').position().left + $('#volume').width() + 10 + 'px').css('top',controls_top + 'px');
     $('#btn_play').css('left',$('#btn_prev').position().left + $('#btn_prev').width() + 10 + 'px').css('top',controls_top + 'px').width(btn_play_width);
     $('#btn_next').css('left',$('#btn_play').position().left + $('#btn_play').width() + 10 + 'px').css('top',controls_top + 'px');
