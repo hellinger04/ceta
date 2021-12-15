@@ -11,9 +11,13 @@ const play_pause = () => {
     if (video_js.paused) {
       video_js.play();
       btn_play.innerText = txtLbl.Pause;
+      btn_play.style.background-color = #088404;
+      btn_play.style.border-color = #088404;
     } else {
       video_js.pause();
       btn_play.innerText = txtLbl.Play;
+      btn_play.style.background-color = #399d36;
+      btn_play.style.border-color = #399d36;
     }
     // video_js.paused ? video_js.play() : video_js.pause();
   }
@@ -48,12 +52,12 @@ async function videoGenerate(CETA_Card,CETA_Caption_File) {
   if (video_entry.blob.type != 'video/mp4') {
     console.log(`********** ERROR, ${CETA_Card} video is not mp4`);
     document.getElementById("video").innerHTML = `<h1>${CETA_Card} video is not an mp4 file</h1><p>Try refreshing</p>`;
-    return "Error"; // this error should be handled by videoGenerate 
+    return "Error"; // this error should be handled by videoGenerate
   }
 
   var video_file = video_files.find(video_file => video_file.CETA_Card==CETA_Card); // get the video file
   var quizzes = video_file.quizzes;
-  const idxQ = quizzes.findIndex(quiz => quiz.questionType<100); 
+  const idxQ = quizzes.findIndex(quiz => quiz.questionType<100);
 
   const video_dom = `<video id='videoPlayer' class="video-js" style="${video_area_size}" onplay="PauseVideos('${CETA_Card}')" \
     data-idx0="0" data-idx1="0" data-idxQ="${idxQ}" data-idxQ0="${idxQ}" preload="auto">`;
@@ -106,10 +110,10 @@ async function videoGenerate(CETA_Card,CETA_Caption_File) {
     }, 500);
     setTimeout(function () {
       $('.modal').modal('hide');
-    }, 900);         
+    }, 900);
   }
 
-  video_js.addEventListener('loadedmetadata', async () => { // duration is in metadata    
+  video_js.addEventListener('loadedmetadata', async () => { // duration is in metadata
     console.log('video_js loadedmetadata event listener');
     try {progress.removeEventListener('click', progress_click);} catch(e) {console.log('progress remove event listener error');}
     progress.addEventListener('click', progress_click);
@@ -187,7 +191,7 @@ async function videoGenerate(CETA_Card,CETA_Caption_File) {
           QT.appendChild(br);
         } // if (flag_show_quiz_times)
       } // if (typeof quiz.question !== "undefined")
-    }); // quizzes.forEach   
+    }); // quizzes.forEach
   }); // video_js.addEventListner
 
   // videoDOM.one.src = window.URL.createObjectURL(video_entry.blob); // free up memory: URL.revokeObjectURL(url)
@@ -216,7 +220,7 @@ function create_FORM() { // show quiz times below the video BUT THIS MAY BE CUTO
     QT.setAttribute('id','quiz_times');
     QT.setAttribute('style','margin:20px; position:absolute; top:830px; ');
     document.body.appendChild(QT);
-  }  
+  }
   return QT;
 }
 
@@ -244,7 +248,7 @@ function VideoDropdownGenerate(dropdownId="VideoSelectionDropdown") { // runs on
     // } else {
     //   card_title = video_file.CETA_Card.split('.')[1]; // number only
     // }
-    document.getElementById(dropdownId).innerHTML += 
+    document.getElementById(dropdownId).innerHTML +=
       `<button id="dropdown_${dropdown_count++}" class="btn btn-outline-secondary card-dropdown" data-card="${video_file.CETA_Card}"
       data-captionFile="${video_file.captionFile}">${card_title}</button>`
       // `<button class="dropdown-item" type="button" onclick="videoGenerate('${video_file.CETA_Card}','${video_file.file}')">
@@ -260,7 +264,7 @@ function VideoDropdownGenerate(dropdownId="VideoSelectionDropdown") { // runs on
       // $("button.card-dropdown").removeClass("active").css('color',default_color).css('background-color','rgba(0,0,0,0)'); // remove active from all dropdown cards
       // $(e.target).addClass("active").css('color','white').css('background-color','darkgreen'); // active card
       videoGenerate($(e.target).attr("data-card"),$(e.target).attr("data-captionFile")); // generate the video using the card and caption file
-    }) 
+    })
   }
 
   document.getElementById("CETA_Card_Display").innerText = elementTitle;
@@ -314,7 +318,7 @@ function get_all_static_cards() {
       const CETA_Card = row.CETA_Card;
       if (CETA_Card!=last_Card && typeof VideoFiles.find(vf => vf[0]==CETA_Card) == "undefined") { // only if this is a new card
         var VideoFileStatic = [];
-        Element_row = CETA_Card.match(/.*\./)[0].slice(0,-1);        
+        Element_row = CETA_Card.match(/.*\./)[0].slice(0,-1);
         if (Element_row == CETA_Element) {
           if (row && row.questionType>=100) { // if the row matches the Element and questionType, which the Type
             if (row.Type=="WhiteBoard" || row.Type=="Pause") {
@@ -416,7 +420,7 @@ function PauseVideos(CETA_Card) {
         } else { // for the last whiteboard
           quizzes[i].end_time = Infinity; // use infinity for last end time if improperly set
         }
-      }      
+      }
     }
 
     // WHITEBOARD
@@ -438,7 +442,7 @@ function PauseVideos(CETA_Card) {
       WB.style.top = video_js_height * 40/100 + "px"; // reduce from 45
       WB.style.overflow = 'auto';
       WB.id = id;
-      return WB;     
+      return WB;
     }
 
     var WBL = create_WB('WB_L');
@@ -506,7 +510,7 @@ function PauseVideos(CETA_Card) {
 
       } else if (quiz.Type == "Pause") {
         if (dom_whiteboards.length == 0 || ( // if no other WB or does not include either WB_C or whiteboard_0
-          !dom_whiteboards.map(x => (typeof x.dom.id == "undefined") ? "" : x.dom.id).includes('WB_C') && 
+          !dom_whiteboards.map(x => (typeof x.dom.id == "undefined") ? "" : x.dom.id).includes('WB_C') &&
           !dom_whiteboards.map(x => (typeof x.dom.id == "undefined") ? "" : x.dom.id).includes('whiteboard_0'))) {
           dom_whiteboard = create_WB("whiteboard_0"); // create whiteboard_0
           // dom_whiteboard.style.fontSize = "small";
@@ -582,7 +586,7 @@ function PauseVideos(CETA_Card) {
     //   quizzes[PauseIdx0-1].time < time < quizzes[PauseIdx0].time
     //   quizzes[PauseIdx1-1].endtime < time < quizzes[PauseIdx1].endtime
     //   time < quizzes[PauseIdxQ].time
-    //   PauseIdx1 = PauseIdx0 - 1 
+    //   PauseIdx1 = PauseIdx0 - 1
 
     video_js.addEventListener("timeupdate", () => {
       var video_dom = document.querySelector("#video"); // not sure why "this" doesn't work
@@ -601,7 +605,7 @@ function PauseVideos(CETA_Card) {
       if (PauseIdxQ != -1 && time>quizzes[PauseIdxQ].time) { // passed the last quiz marker by ordinary playing or skip ahead
         // let PauseIdxQNext = quizzes.findIndex(quiz => (quiz.questionType<100 && time<=quiz.time)); // look for the next quiz
         // FIND THE NEXT QUIZ: quizzes[PauseIdxQ].time < time <= quizzes[PauseIdxQNext].time
-        let PauseIdxQNext = quizzes.findIndex((quiz,idx) => (quiz.questionType<100 && idx>PauseIdxQ)); 
+        let PauseIdxQNext = quizzes.findIndex((quiz,idx) => (quiz.questionType<100 && idx>PauseIdxQ));
         // let PauseIdxQLast;
         // if (PauseIdxQNext==-1) { // quizzes[PauseIdxQ] is the last quiz
         //   PauseIdxQLast = PauseIdxQ;
@@ -617,7 +621,7 @@ function PauseVideos(CETA_Card) {
       // IF THIS IS A WHITEBOARD OR PAUSE
       // typical case:
       //   if time > quizzes[PauseIdx0].time || time > quizzes[PauseIdx1].endtime
-      //     
+      //
       if ((PauseIdx0 != -1 && time>quizzes[PauseIdx0].time     && quizzes[PauseIdx0].questionType>=100) || // needed to turn on whiteboards
           (PauseIdx1 != -1 && time>quizzes[PauseIdx1].end_time && quizzes[PauseIdx1].questionType>=100)) { // needed to turn off the last whiteboard
         // console.log('  current time: ' + kdp.evaluate('{video.player.currentTime}'));
