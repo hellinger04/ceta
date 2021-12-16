@@ -163,10 +163,6 @@
     justify-content: flex-end;
     padding: 1rem;
     border-top: 0px solid #e9ecef;
-
-    .btn_play {
-      color: #fff; background-color: #255962; border-color: #255962; border-radius: 20px;
-    }
   }
 
   body {
@@ -237,6 +233,25 @@ input[type=range]:focus::-webkit-slider-runnable-track {
     background: #ccc;
 }
 
+input[type=range]::-ms-fill-lower {
+    background-color: #0387b6;
+    border-radius: 10px;
+}
+
+input[type=range]::-ms-fill-upper {
+    background-color: #ccc;
+    border-radius: 10px;
+}
+
+input[type=range]::-moz-range-progress {
+    background-color: #0387b6;
+    border-radius: 10px;
+}
+
+input[type=range]::-moz-range-track {
+    background-color: #ccc;
+    border-radius: 10px;
+}
 </style>
 <!-- ADD COMPBINATORS -->
 <style>
