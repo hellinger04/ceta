@@ -207,38 +207,35 @@
     border-radius: 7px
   }
 
-  .custom-range::-webkit-slider-thumb {
-    width: 1rem;
-    height: 1rem;
-    margin-top: -0.25rem;
-    background-color: #000000;
-    color: black;
-    border: 0;
-    border-radius: 1rem;
-    transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  input[type=range]{
     -webkit-appearance: none;
-    appearance: none;
-  }
+}
 
-  @media screen and (prefers-reduced-motion: reduce) {
-    .custom-range::-webkit-slider-thumb {
-      transition: none;
-    }
-  }
+input[type=range]::-webkit-slider-runnable-track {
+    width: 300px;
+    height: 5px;
+    background: #ddd;
+    border: none;
+    border-radius: 3px;
+}
 
-  .custom-range::-webkit-slider-thumb:active {
-    background-color: #000000;
-  }
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: none;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background: #0387b6;
+    margin-top: -4px;
+}
 
-  .custom-range::-webkit-slider-runnable-track {
-    width: 100%;
-    height: 0.5rem;
-    color: transparent;
-    cursor: pointer;
-    background-color: #000000;
-    border-color: transparent;
-    border-radius: 1rem;
-  }
+input[type=range]:focus {
+    outline: none;
+}
+
+input[type=range]:focus::-webkit-slider-runnable-track {
+    background: #ccc;
+}
 
 </style>
 <!-- ADD COMPBINATORS -->
@@ -430,7 +427,7 @@
     btn_play_width = Math.max($('#btn_play').text(txtLbl.Play).width(),btn_play_width); // make sure it is large enough and ends in Play
 
     $('#volume_icon').css('left','1rem').css('top',controls_top + 'px');
-    $('#volume').css('left',$('#volume_icon').position().left + $('#volume_icon').width() + 10 + 'px').css('top',controls_top + 'px');
+    $('#volume').css('left',$('#volume_icon').position().left + $('#volume_icon').width() + 10 + 'px').css('top',controls_top + 'px').css('background','black');
     $('#btn_prev').css('left',$('#volume').position().left + $('#volume').width() + 10 + 'px').css('top',controls_top + 'px');
     $('#btn_play').css('left',$('#btn_prev').position().left + $('#btn_prev').width() + 10 + 'px').css('top',controls_top + 'px').width(btn_play_width);
     $('#btn_next').css('left',$('#btn_play').position().left + $('#btn_play').width() + 10 + 'px').css('top',controls_top + 'px');
