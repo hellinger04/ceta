@@ -49,9 +49,6 @@
 </script>
 
 <style>
-
-  @import "compass/css3";
-
   .modal-footer-container{width:100%;}
   .modal-left{float:left;width:20%;} /* 200px */
   .modal-right{float:right;width:20%;}
@@ -255,31 +252,6 @@ input[type=range]::-moz-range-track {
     background-color: #ccc;
     border-radius: 10px;
 }
-
-.slidecontainer {
-  input {
-    background: linear-gradient(to right, green 0%, green 50%, #fff 50%, #fff 100%);
-    border: solid 1px #00b300;
-    border-radius: 8px;
-    height: 7px;
-    width: 356px;
-    outline: none;
-    transition: background 450ms ease-in;
-
-    -webkit-appearance: none;
-  }
-
-  input::-webkit-slider-thumb {
-    background-color: orange;
-    border: solid 12px gold;
-    border-radius: 0;
-
-    height: 25px;
-    width: 25px;
-    border-radius: 50%;
-    -webkit-appearance: none;
-  }
-}
 </style>
 <!-- ADD COMPBINATORS -->
 <style>
@@ -442,26 +414,6 @@ input[type=range]::-moz-range-track {
   var progress_start; // start x position in pixels
   var progress_length; // length in pixels
 
-    // .firefox
-  var isFF = true;
-  var addRule = (function (style) {
-  var sheet = document.head.appendChild(style).sheet;
-  return function (selector, css) {
-    if ( isFF ) {
-      if ( sheet.cssRules.length > 0 ) {
-        sheet.deleteRule( 0 );
-      }
-
-      try {
-        sheet.insertRule(selector + "{" + css + "}", 0);
-      } catch ( ex ) {
-        isFF = false;
-      }
-    }
-  };
-  })(document.createElement("style"));
-
-
   $(document).ready(async function() { // occurs after the HTML document has been loaded
     $('#cards_dropdown_button').text(txtLbl.Cards);
     $('.class_cards').text(txtLbl.Cards);
@@ -503,11 +455,6 @@ input[type=range]::-moz-range-track {
     $('#time_67_5').css('left',progress_start + 200 + 'px').css('top',controls_top + 'px');
     $('#CETA_Card_Display').css('left',500 + 'px');
   });
-
-  // .chrome styling
-  $( '.slidecontainer input' ).on( 'input', function( ) {
-    $( this ).css( 'background', 'linear-gradient(to right, #0387b6 0%, #0387b6 '+this.value +'%, #fff ' + this.value + '%, white 100%)' );
-  } );
 </script>
 </body>
 </html>
