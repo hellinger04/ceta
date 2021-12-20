@@ -1,3 +1,5 @@
+@import "compass/css3";
+
 .badge-pill{
     border: 0;
     font-size: x-large;
@@ -90,4 +92,3 @@
   font-size: 22px;
   line-height: 24px;
 }
-
