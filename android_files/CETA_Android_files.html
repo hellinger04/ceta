@@ -98,14 +98,7 @@
       <h3 id="title">CETA Android File FINAL VERSION 2021-11-10 (3 separate apps)</h3>
       <p>Download and install each app separately.</p>
       <div class="div_elements">
-        <!-- I hard-coded this link so that I could customize the link title,
-             since I don't have access to the "a_part1" id. This can be reverted
-             by changing the link title attribute in the "a_part1", "a_part2", and
-             "a_part3" ids to the titles that are included in these hard-coded
-             links. This is important so that the text in the buttons wraps when
-             the screen size is too narrow.-->
-        <!-- <a id="a_part1" class=rcorners2>CETA Ukraine App 1</a> -->
-        <a class=rcorners2 href="./apk/ceta_ukraine_parts/CETA_Ukraine_1_v1.apk">CETA Ukraine App 1</a>
+        <a id="a_part1" class=rcorners2>CETA Ukraine App 1</a>
         <ul>
           <li>IntroToTraining</li>
           <li>EPINTRO</li>
@@ -116,9 +109,7 @@
         </ul>
       </div>
       <div class="div_elements">
-        <!-- This link is hard-coded as explained above. -->
-        <!-- <a id="a_part2" class="rcorners2">CETA Ukraine App 2</a> -->
-        <a class=rcorners2 href="./apk/ceta_ukraine_parts/CETA_Ukraine_2_v1.apk">CETA Ukraine App 2</a>
+        <a id="a_part2" class="rcorners2">CETA Ukraine App 2</a>
         <ul>
           <li>GA</li>
           <li>CSDep</li>
@@ -128,9 +119,7 @@
         </ul>
       </div>
       <div class="div_elements">
-        <!-- This link is hard-coded as explained above. -->
-        <!-- <a id="a_part3" class="rcorners2">CETA Ukraine App 3</a> -->
-        <a class=rcorners2 href="./apk/ceta_ukraine_parts/CETA_Ukraine_3_v1.apk">CETA Ukraine App 3</a>
+        <a id="a_part3" class="rcorners2">CETA Ukraine App 3</a>
         <ul>
           <li>Safety</li>
           <li>LE</li>
@@ -203,7 +192,7 @@
     part_idx.forEach(idx => {
       const a_part = document.getElementById('a_part' + idx);
       a_part.href = dir + "CETA_Ukraine_" + idx + "_v1.apk";
-      a_part.innerText = 'CETA_Ukraine_' + idx + '_v1';
+      a_part.innerText = 'CETA Ukraine App ' + idx;
     });
   </script>
 </body>
